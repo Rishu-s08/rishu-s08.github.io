@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rishi Sharma — Enhanced Portfolio</title>
+  <meta name="description" content="Enhanced version with extra animations and content." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles_enhanced.css" />
+</head>
+<body>
+  <!-- include original nav by keeping file structure intact -->
+  <nav class="nav">
+    <div class="brand">Rishi <span>Sharma</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <!-- <li><a href="#testimonials">Testimonials</a></li> -->
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+    <button class="nav-toggle" aria-label="menu" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <header class="hero enhanced-hero" id="home">
+    <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+    <div class="hero-card glass enhanced-card">
+      <h1 class="typed">Hey — I’m <span class="name">Rishi Sharma</span></h1>
+      <p class="tagline">Full stack cross-platform app developer</p>
+      <p class="sub">I craft intuitive, cross-platform apps with Flutter and backend tech, while diving into cybersecurity and Python —
+      exciting projects on the way.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#projects">See Projects</a>
+        <a class="btn ghost" href="#contact">Contact</a>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/Rishu-s08" target="_blank" aria-label="github">GitHub</a>
+        <a href="https://www.linkedin.com/in/rishu-s08/" target="_blank" aria-label="linkedin">LinkedIn</a>
+        <!-- <a href="#" aria-label="youtube">YouTube</a> -->
+      </div>
+    </div>
+    <div class="hero-illustration enhanced-illustration">
+      <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g2" x1="0" x2="1">
+            <stop offset="0" stop-color="#fbcfe8"/>
+            <stop offset="1" stop-color="#93c5fd"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(300,300)">
+          <path d="M120,-160C160,-110,180,-60,190,-10C200,40,200,90,170,130C140,170,80,200,20,210C-40,220,-100,210,-140,170C-180,130,-200,70,-190,10C-180,-50,-140,-110,-90,-150C-40,-190,20,-210,70,-200C120,-190,80,-210,120,-160Z" fill="url(#g2)" opacity="0.45"/>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+    <!-- About (original content preserved) -->
+    <section id="about" class="panel">
+      <div class="container glass-panel">
+        <h2 style="margin-bottom: 16px;">About Me</h2>
+        <p style="margin-bottom: 8px;">Hi, I’m <strong>Rishi Sharma</strong>. Hi, I’m Rishi Sharma — a developer with a knack for building cross-platform
+          apps that blend clean, elegant user
+          experiences with strong, reliable backend systems. My toolkit revolves around Flutter for creating smooth and
+          beautiful
+          interfaces, and Node.js for powering them with fast, scalable services. </p>
+        <b></b>
+        <p style="margin-bottom: 8px;">I’m driven by curiosity — whether it’s diving into a new tech stack, experimenting with geolocation features,
+          fine-tuning UI aesthetics, or exploring the world of cybersecurity. Right now, I’m sharpening my skills in Flutter,
+          backend architecture, and security fundamentals, while working on projects that challenge me to learn by doing.</p>
+        <b></b>
+        <p style="margin-bottom: 8px;">For me, coding isn’t just about writing functions — it’s about building experiences, solving problems creatively, and
+          constantly pushing myself to level up.</p>
+        <div class="badges">
+          <span class="pill">Open to work</span>
+          <span class="pill">Freelance</span>
+          <span class="pill">Available for internships</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills with animated counters -->
+    <section id="skills" class="panel">
+      <div class="container glass-panel" style="backdrop-filter: blur(12px); box-shadow: 0 8px 32px rgba(96,165,250,0.12); border-radius: 24px;">
+        <h2 style="text-align:center; font-size:2.2rem; background: linear-gradient(90deg,#a78bfa,#60a5fa); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px; letter-spacing: 1px;">Skills</h2>
+        <div class="skills-grid enhanced-skills" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;">
+          <div class="skill card-float" style="background:rgba(167,139,250,0.12);border-radius:18px;padding:24px 18px;box-shadow:0 2px 12px rgba(96,165,250,0.08);display:flex;flex-direction:column;align-items:center;transition:transform .3s;">
+            <div style="margin-bottom:10px;animation:floaty 3.5s infinite;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #a78bfa88);">
+            </div>
+            <h3 style="margin-bottom:8px;background:linear-gradient(90deg,#a78bfa,#60a5fa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Flutter</h3>
+            <div class="radial" data-percent="85"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">85%</div></div>
+            <small style="margin-top:8px;color:#a78bfa;font-weight:600;">Cross-platform UI</small>
+          </div>
+          <div class="skill card-float" style="background:rgba(96,165,250,0.12);border-radius:18px;padding:24px 18px;box-shadow:0 2px 12px rgba(96,165,250,0.08);display:flex;flex-direction:column;align-items:center;transition:transform .3s;">
+            <div style="margin-bottom:10px;animation:floaty 3.5s infinite;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #60a5fa88);">
+            </div>
+            <h3 style="margin-bottom:8px;background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Backend</h3>
+            <div class="radial" data-percent="75"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">75%</div></div>
+            <small style="margin-top:8px;color:#60a5fa;font-weight:600;">APIs, Node.js, Databases</small>
+          </div>
+          <div class="skill card-float" style="background:rgba(34,197,94,0.10);border-radius:18px;padding:24px 18px;box-shadow:0 2px 12px rgba(34,197,94,0.08);display:flex;flex-direction:column;align-items:center;transition:transform .3s;">
+            <div style="margin-bottom:10px;animation:floaty 3.5s infinite;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Cybersec" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #22c55e88);">
+            </div>
+            <h3 style="margin-bottom:8px;background:linear-gradient(90deg,#22c55e,#a78bfa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Cybersec</h3>
+            <div class="radial" data-percent="65"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">65%</div></div>
+            <small style="margin-top:8px;color:#22c55e;font-weight:600;">Learning pentesting & fundamentals</small>
+          </div>
+          <div class="skill card-float" style="background:rgba(251,191,36,0.10);border-radius:18px;padding:24px 18px;box-shadow:0 2px 12px rgba(251,191,36,0.08);display:flex;flex-direction:column;align-items:center;transition:transform .3s;">
+            <div style="margin-bottom:10px;animation:floaty 3.5s infinite;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #fbbf3688);">
+            </div>
+            <h3 style="margin-bottom:8px;background:linear-gradient(90deg,#fbbf36,#60a5fa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Python</h3>
+            <div class="radial" data-percent="80"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">80%</div></div>
+            <small style="margin-top:8px;color:#fbbf36;font-weight:600;">Scripting, automation</small>
+          </div>
+          <div class="skill card-float" style="background:rgba(255,128,0,0.10);border-radius:18px;padding:24px 18px;box-shadow:0 2px 12px rgba(255,128,0,0.08);display:flex;flex-direction:column;align-items:center;transition:transform .3s;">
+            <div style="margin-bottom:10px;animation:floaty 3.5s infinite;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #ff800088);">
+            </div>
+            <h3 style="margin-bottom:8px;background:linear-gradient(90deg,#ff8000,#a78bfa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Blender</h3>
+            <div class="radial" data-percent="65"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">65%</div></div>
+            <small style="margin-top:8px;color:#ff8000;font-weight:600;">3D, environments & animation</small>
+          </div>
+          <div class="skill card-float" style="background:rgba(255,85,85,0.10);border-radius:18px;padding:24px 18px;box-shadow:0 2px 12px rgba(255,85,85,0.08);display:flex;flex-direction:column;align-items:center;transition:transform .3s;">
+            <div style="margin-bottom:10px;animation:floaty 3.5s infinite;">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Adobe Illustrator" style="width:38px;height:38px;filter:drop-shadow(0 2px 8px #ff555588);">
+            </div>
+            <h3 style="margin-bottom:8px;background:linear-gradient(90deg,#ff5555,#a78bfa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Illustrator</h3>
+            <div class="radial" data-percent="75"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">75%</div></div>
+            <small style="margin-top:8px;color:#ff5555;font-weight:600;">Vector art & design</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects with filters and modal details -->
+    <section id="projects" class="panel">
+      <div class="container">
+        <h2>Projects (placeholders)</h2>
+        <div class="proj-controls">
+          <button style="margin-top: 8px;" class="chip active" data-filter="all">All</button>
+          <button style="margin-top: 8px;" class="chip" data-filter="flutter">Flutter</button>
+          <button style="margin-top: 8px;" class="chip" data-filter="backend">Backend</button>
+        </div>
+        <div class="projects-grid enhanced-projects">
+          <article class="project glass card-float" data-tags="flutter location">
+            <div class="proj-header">
+              <h3>Cartelle</h3>
+              <p class="proj-meta">Flutter · Location Services · Notifications · Google Maps · GeoFencing</p>
+            </div>
+            <p class="proj-desc">A geofence-driven shopping list app with background tasks and smart reminders. (Private project)</p>
+            <div class="proj-links">
+              <a href="#" class="btn small" data-open="modal1">Details</a>
+              <a href="#" class="btn small ghost">View Repo</a>
+            </div>
+          </article>
+
+          <article class="project glass card-float" data-tags="flutter forms">
+            <div class="proj-header">
+              <h3>Faculty Feedback System</h3>
+              <p class="proj-meta">Flutter · Forms · Analytics</p>
+            </div>
+            <p class="proj-desc">A feedback and evaluation app for universities with role-based access and analytics.</p>
+            <div class="proj-links">
+              <a href="#" class="btn small" data-open="modal2">Details</a>
+              <a href="https://github.com/Rishu-s08/faculty-feedback" target="_blank" class="btn small ghost">View Repo</a>
+            </div>
+          </article>
+
+          <article class="project glass card-float" data-tags="backend microservice">
+            <div class="proj-header">
+              <h3>Whole Backend Notes</h3>
+              <p class="proj-meta">Node.js · Redis · Docker</p>
+            </div>
+            <p class="proj-desc">Microservice architecture starter kit used for learning backend patterns.</p>
+            <div class="proj-links">
+              <a href="#" class="btn small" data-open="modal3">Details</a>
+              <a href="https://github.com/Rishu-s08/Backend" class="btn small ghost">View Repo</a>
+            </div>
+          </article>
+
+          <article class="project glass card-float" data-tags="flutter blog app">
+            <div class="proj-header">
+              <h3>Blog app</h3>
+              <p class="proj-meta">Flutter · Supabase · Bloc</p>
+            </div>
+            <p class="proj-desc">Blog App – Flutter app with full CRUD for posts, rich text editor, image upload, categories, user authentication, and
+            responsive design.</p>
+            <div class="proj-links">
+              <a href="#" class="btn small" data-open="modal4">Details</a>
+              <a href="https://github.com/Rishu-s08/Backend" class="btn small ghost">View Repo</a>
+            </div>
+          </article>
+
+          <article class="project glass card-float" data-tags="flutter reddit clone">
+            <div class="proj-header">
+              <h3>Reddit Clone</h3>
+              <p class="proj-meta">Flutter · Firebase · Supabase · Riverpod</p>
+            </div>
+            <p class="proj-desc">A full-stack social platform with user authentication, community creation, post & comment threads, upvote/downvote system, real-time updates, search, profiles, and moderation tools. Built with a responsive UI and scalable backend for a
+            seamless cross-device experience..</p>
+            <div class="proj-links">
+              <a href="#" class="btn small" data-open="modal5">Details</a>
+              <a href="https://github.com/Rishu-s08/Backend" class="btn small ghost">View Repo</a>
+            </div>
+          </article>
+
+          <article class="project glass card-float" data-tags="flutter todo app">
+            <div class="proj-header">
+              <h3>To Do Notes</h3>
+              <p class="proj-meta">Flutter · Firebase · Bloc · offline/online persistent </p>
+            </div>
+            <p class="proj-desc">To-Do Notes App – Flutter app using BLoC for state management. Features note creation, editing, deletion, search, and persistent storage with a clean, responsive UI.</p>
+            <div class="proj-links">
+              <a href="#" class="btn small" data-open="modal6">Details</a>
+              <a href="https://github.com/Rishu-s08/Backend" class="btn small ghost">View Repo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline" class="panel">
+      <div class="container">
+        <h2>Timeline</h2>
+        <div class="timeline">
+          <div class="event">
+            <time>2018</time>
+            <p>Started learning Html, Css</p>
+          </div>
+          <div class="event">
+            <time>2019</time>
+            <p>Started learning JavaScript, made a bunch of websites</p>
+          </div>
+          <div class="event">
+            <time>2020</time>
+            <p>Started with Bootstrap, Jquery, PHP, MySQL</p>
+          </div>
+          <div class="event">
+            <time>2021</time>
+            <p>Python and AI/ML</p>
+          </div>
+          <div class="event">
+            <time>2022</time>
+            <p>Data Analysis with Python (Numpy, Pandas, Matplotlib)</p>
+          </div>
+          <div class="event">
+            <time>2023</time>
+            <p>Unity and Cybersec </p>
+          </div>
+          <div class="event">
+            <time>2024</time>
+            <p>Flutter, DSA</p>
+          </div>
+          <div class="event">
+            <time>2025</time>
+            <p>Learing Backend </p>
+          </div>
+          <div class="event">
+            <time>2025</time>
+            <p>Learned Blender did make environments and animations </p>
+          </div>
+          <div class="event">
+            <time>2025</time>
+            <p>Build Feedback App for College, Clones, Simple and Complex apps </p>
+          </div>
+          <div class="event">
+            <time>2025</time>
+            <p>Started Cartelle as a Project</p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <!-- <section id="testimonials" class="panel">
+      <div class="container">
+        <h2>Testimonials</h2>
+        <div class="test-grid">
+          <blockquote class="quote card-float">"Rishi iterates fast and cares about UX — projects are thoughtful and well-structured."</blockquote>
+          <blockquote class="quote card-float">"Quick learner, picks up backend and mobile concepts quickly." — Mentor</blockquote>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Contact (original preserved) -->
+    <section id="contact" class="panel">
+      <div class="container glass-panel">
+        <h2>Contact</h2>
+        <p style="margin-top: 8px;">Want to collaborate or just say hi? Send a message — I’ll reply.</p>
+        <form id="contactForm" method="POST" action="https://formsubmit.co/dissyposable@proton.me" style="margin-top: 16px; background: rgba(167,139,250,0.10); border-radius: 18px; box-shadow: 0 4px 24px rgba(96,165,250,0.10); padding: 32px 24px; backdrop-filter: blur(8px); display: flex; flex-direction: column; gap: 18px;">
+          <label style="font-weight:600;color:#a78bfa;letter-spacing:0.5px;">
+            <span style="display:block;margin-bottom:6px;">Name</span>
+            <input type="text" name="name" required placeholder="Your name" style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #a78bfa33;background:rgba(255,255,255,0.12);color:#222;font-size:1rem;box-shadow:0 2px 8px #a78bfa11;transition:border .2s;outline:none;">
+          </label>
+          <label style="font-weight:600;color:#60a5fa;letter-spacing:0.5px;">
+            <span style="display:block;margin-bottom:6px;">Email</span>
+            <input type="email" name="email" required placeholder="you@example.com" style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #60a5fa33;background:rgba(255,255,255,0.12);color:#222;font-size:1rem;box-shadow:0 2px 8px #60a5fa11;transition:border .2s;outline:none;">
+          </label>
+          <input type="text" name="_honey" style="display:none">
+
+          <label style="font-weight:600;color:#22c55e;letter-spacing:0.5px;">
+            <span style="display:block;margin-bottom:6px;">Message</span>
+            <textarea name="message" rows="5" required placeholder="Write your message..." style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #22c55e33;background:rgba(255,255,255,0.12);color:#222;font-size:1rem;box-shadow:0 2px 8px #22c55e11;transition:border .2s;outline:none;resize:vertical;"></textarea>
+          </label>
+          <div class="form-row" style="display:flex;gap:12px;margin-top:8px;">
+            <button class="btn" type="submit" style="background:linear-gradient(90deg,#a78bfa,#60a5fa);color:#fff;border:none;border-radius:10px;padding:12px 28px;font-weight:700;font-size:1.08rem;box-shadow:0 2px 12px #a78bfa22;cursor:pointer;transition:background .2s,transform .2s;">Send</button>
+            <button class="btn ghost" type="reset" style="background:rgba(255,255,255,0.12);color:#a78bfa;border-radius:10px;padding:12px 28px;font-weight:700;font-size:1.08rem;box-shadow:0 2px 12px #a78bfa11;cursor:pointer;transition:background .2s,transform .2s;">Reset</button>
+          </div>
+          <!-- <p class="note" style="margin-top:12px;color:#60a5fa;font-size:0.98rem;">Or email me directly at <a href="mailto:rishi.2030s@gmail.com" style="color:#a78bfa;text-decoration:underline;">rishi.2030s@gmail.com</a></p> -->
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© <span id="year"></span> Rishi Sharma</div>
+    <div class="footer-links">
+      <!-- <a href="#">Privacy</a>
+      <a href="#">Terms</a> -->
+    </div>
+  </footer>
+
+  <div id="modal1" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>SmartCart — Details</h3>
+      <p style="margin-bottom: 16px;">
+        <b>1. Core Purpose</b><br>
+        Cartelle is designed to simplify shopping and reminders by combining:<br>
+        • Smart shopping lists<br>
+        • Location-based reminders<br>
+        • Time-based reminders<br>
+        • Clean, elegant, modern UI<br><br>
+      
+        <b>2. Features & Details</b><br>
+      
+        <b>A. Smart Shopping Lists</b><br>
+        • Create and manage multiple shopping lists.<br>
+        • Add items with:<br>
+        &nbsp;&nbsp;&nbsp;– Name<br>
+        &nbsp;&nbsp;&nbsp;– Quantity<br>
+        &nbsp;&nbsp;&nbsp;– Category (e.g., grocery, electronics)<br>
+        &nbsp;&nbsp;&nbsp;– Optional notes<br>
+        • Mark items as completed.<br>
+        • Planned enhancement: Predictive suggestions based on previous items.<br>
+        <i>How we make it:</i><br>
+        &nbsp;&nbsp;&nbsp;– UI: Flutter with Riverpod for state management.<br>
+        &nbsp;&nbsp;&nbsp;– Data: Local DB (Hive/SQLite) + sync with backend.<br>
+        &nbsp;&nbsp;&nbsp;– Logic: Lists stored per user, each item having a status (pending/completed).<br><br>
+      
+        <b>B. Reminders</b><br>
+        • Time-based reminders (like alarms for tasks).<br>
+        • Location-based reminders:<br>
+        &nbsp;&nbsp;&nbsp;– Trigger when entering/leaving a certain radius from a saved location.<br>
+        &nbsp;&nbsp;&nbsp;– Perfect for "Buy milk when near XYZ store" use case.<br>
+        • GPS toggle: Ability to turn tracking on/off to save battery.<br>
+        <i>How we make it:</i><br>
+        &nbsp;&nbsp;&nbsp;– Time-based: Flutter awesome_notifications or similar.<br>
+        &nbsp;&nbsp;&nbsp;– Location-based: flutter_background_geolocation for geofencing.<br>
+        &nbsp;&nbsp;&nbsp;– Backend: Save reminder details for sync.<br><br>
+      
+        <b>C. Location Management</b><br>
+        • Save frequently visited places (shops, markets, etc.).<br>
+        • Each location can have:<br>
+        &nbsp;&nbsp;&nbsp;– Name<br>
+        &nbsp;&nbsp;&nbsp;– Latitude/Longitude<br>
+        &nbsp;&nbsp;&nbsp;– Radius (for geofence trigger)<br>
+        • Option to edit or delete locations.<br>
+        • Check if a shopping list is using a location before deletion.<br>
+        <i>How we make it:</i><br>
+        &nbsp;&nbsp;&nbsp;– UI: Google Maps Flutter package (marker + draggable).<br>
+        &nbsp;&nbsp;&nbsp;– Data: Location table linked with lists/reminders.<br><br>
+      
+        <b>D. Add Screen (Quick Create)</b><br>
+        • Single, central "Add" tab to:<br>
+        &nbsp;&nbsp;&nbsp;– Create a new list.<br>
+        &nbsp;&nbsp;&nbsp;– Add items to a list.<br>
+        &nbsp;&nbsp;&nbsp;– Create a reminder.<br>
+        &nbsp;&nbsp;&nbsp;– Save a location.<br>
+        • Designed for speed — minimal taps to add something.<br>
+        <i>How we make it:</i><br>
+        &nbsp;&nbsp;&nbsp;– Navigation: go_router for deep linking.<br>
+        &nbsp;&nbsp;&nbsp;– UI: Floating menu / segmented add form.<br><br>
+      
+        <b>E. Profile & Analytics</b><br>
+        • Track spending trends per category/list.<br>
+        • See monthly breakdown.<br>
+        • Option to export data.<br>
+        • Planned: AI-based spending insights.<br>
+        <i>How we make it:</i><br>
+        &nbsp;&nbsp;&nbsp;– Charts: fl_chart for graphs.<br>
+        &nbsp;&nbsp;&nbsp;– Backend: Store completed items with cost metadata.<br><br>
+      
+        <b>F. Notifications</b><br>
+        • Get notified when:<br>
+        &nbsp;&nbsp;&nbsp;– You’re near a location with a pending task.<br>
+        &nbsp;&nbsp;&nbsp;– A reminder is due.<br>
+        • In-app notification history for missed alerts.<br><br>
+      
+        <b>G. User Authentication</b><br>
+        • Firebase Email/Password login.<br>
+        • Email verification.<br>
+        • Google Sign-In (future).<br>
+        • Secure user data sync.<br><br>
+      
+        <b>H. Design</b><br>
+        • Soft, elegant UI inspired by the cupcake theme.<br>
+        • Rounded corners, pastel colors, minimal shadows.<br>
+        • Consistent typography.<br>
+        • Smooth transitions & animations.<br><br>
+      
+        <b>3. Tech Stack</b><br>
+        • Frontend: Flutter (Riverpod, go_router)<br>
+        • Backend: Node.js + Express (planned)<br>
+        • Database: MongoDB (remote), Hive (local caching)<br>
+        • Maps & Location: Google Maps API + flutter_background_geolocation<br>
+        • Auth: Firebase Authentication<br>
+        • Notifications: awesome_notifications<br>
+        • Hosting: VPS/Docker (future)
+      </p>
+      <button style="margin-top: 16px" class="btn" data-close>Close</button>
+    </div>
+  </div>
+  <div id="modal2" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Faculty Feedback System — Details</h3>
+      <p>📌 <b>Core Purpose</b><br>
+      - Collect structured feedback from students about faculty performance.<br>
+      - Maintain teaching quality and identify areas for improvement.<br>
+      - Simplify the feedback process with a modern, intuitive interface.<br><br>
+      
+      🎯 <b>Key Features for Students</b><br>
+      - Secure Login – Role-based access (students, admins).<br>
+      - Relevant Forms Only – Students see only their semester & branch forms.<br>
+      - No Repeat Submissions – Forms disappear after submission.<br>
+      - Static Questions – Pre-defined on teaching skills, punctuality, clarity, etc.<br>
+      - Multiple Response Types – Ratings (stars/scales) + optional comments.<br>
+      - Deadline Alerts – Push/email notifications for pending feedback.<br>
+      - Mobile-Friendly UI – Clean, fast, and easy to use.<br><br>
+      
+      🛠 <b>Features for Administrators</b><br>
+      - Faculty Management – Add, edit, or remove faculty profiles.<br>
+      - Feedback Form Creation – Pre-set or custom questions with scheduling.<br>
+      - Role-Based Access – Admins control creation, viewing, and management rights.<br>
+      - Detailed Analytics – Averages, trends, question-wise performance.<br>
+      - Data Export – Generate PDF/CSV reports for reviews or audits.<br>
+      - Integration Ready – Connect with institutional SSO or student portals.<br><br>
+      
+      📊 <b>Reporting & Insights</b><br>
+      - Performance Reports – Individual & department-wide summaries.<br>
+      - Trend Analysis – Track improvement over time.<br>
+      - Strengths & Weaknesses – Highlight excellence and areas needing growth.<br>
+      - Accreditation Support – Export-ready data for documentation.<br><br>
+      
+      🔒 <b>Security & Authenticity</b><br>
+      - Prevents multiple submissions per student per form.<br>
+      - Secure storage and encrypted data transfer.<br>
+      - Audit logs for admin actions.<br><br>
+      
+      🌟 <b>Additional Options</b><br>
+      - Offline mode with sync when online.<br>
+      - Multi-language support for diverse campuses.<br>
+      - Customizable themes to match institution branding.
+</p>
+      <button class="btn"  style="margin-top: 16px"; data-close>Close</button>
+    </div>
+  </div>
+  <div id="modal3" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Backend </h3>
+      <p>Features: API gateway, auth service, post service, docker-compose setup, Redis caching.</p>
+      <button class="btn"  style="margin-top: 16px"; data-close>Close</button>
+    </div>
+  </div>
+  <div id="modal4" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Blog App</h3>
+      <p><p>
+ Developed using Flutter with Bloc state management and Supabase backend, this app offers a
+        robust blogging platform with the following features:<br><br>
+      
+        <strong>Core Features:</strong><br>
+        • Full CRUD operations: Users can create, read, update, and delete blog posts seamlessly.<br>
+        • Rich Text Editor: Provides formatting options like bold, italics, lists, links, and more for creating engaging
+        content.<br>
+        • Image Upload: Users can upload images to accompany their posts, enhancing visual appeal.<br>
+        • Categories & Tags: Organize posts by categories for easy browsing and filtering.<br>
+        • User Authentication: Secure signup, login, and session management powered by Supabase Auth.<br>
+        • Responsive Design: Optimized UI for both mobile and web platforms to ensure smooth user experience.<br><br>
+      
+        <strong>Technical Highlights:</strong><br>
+        • State Management: Bloc pattern ensures scalable and maintainable state handling across the app.<br>
+        • Backend Integration: Supabase handles real-time database, authentication, and file storage.<br>
+        • API Communication: Efficiently manages network requests with error handling and loading states.<br>
+        • Data Validation: Ensures input integrity before saving posts or updating user profiles.<br>
+        • Performance Optimization: Lazy loading of posts and images to improve speed and reduce resource usage.<br><br>
+      
+        <strong>User Experience:</strong><br>
+        • Intuitive UI with clean layouts and smooth transitions.<br>
+        • Real-time updates: Posts and comments reflect instantly with Supabase’s real-time capabilities.<br>
+        • Accessibility considerations for wider user reach.<br><br>
+      
+        This app demonstrates comprehensive full-stack development skills, combining Flutter frontend expertise with modern
+        backend technologies and clean architecture principles.
+      </p>
+</p>
+      <button class="btn" style="margin-top: 16px" ; data-close>Close</button>
+      </div>
+  </div>
+
+  <div id="modal5" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Reddit Clone</h3>
+        <p>
+        <p>
+          <strong>Reddit Clone</strong><br>
+          Responsive full-stack Reddit clone app built for Android, iOS, and Web platforms using Flutter.<br><br>
+        
+          <strong>Features:</strong><br>
+          • Google & Guest Authentication for easy access.<br>
+          • Create and join communities to connect with others.<br>
+          • Community profiles with avatar, banner, and member counts.<br>
+          • Edit community description and avatar.<br>
+          • Post creation supporting link-only, photo, and text-only posts.<br>
+          • Display posts from communities the user is part of.<br>
+          • Upvote and downvote system to rank posts.<br>
+          • Commenting on posts to engage in discussions.<br>
+          • Award posts with custom awards.<br>
+          • Karma system that updates based on user activity.<br>
+          • Add moderators with permissions to manage communities.<br>
+          • Moderators can remove or delete posts.<br>
+          • User profiles with customizable avatar and banner.<br>
+          • Theme switch for light and dark modes.<br>
+          • Cross-platform support with a responsive UI.<br>
+          • Latest posts feed available to guest users.<br><br>
+        
+          Check out the full tutorial series on YouTube by Rivaan Ranawat to learn how to build this app step-by-step.
+        </p>
+
+        </p>
+        <button class="btn" style="margin-top: 16px" ; data-close>Close</button>
+      </div>
+  </div>
+
+  <div id="modal6" class="modal" aria-hidden="true">
+      <div class="modal-content">
+          <h3>Blog App</h3>
+          <p>
+          <p>
+            Developed using Flutter with Bloc state management and Supabase backend, this app offers a
+            robust blogging platform with the following features:<br><br>
+      
+            <strong>Core Features:</strong><br>
+            • Full CRUD operations: Users can create, read, update, and delete blog posts seamlessly.<br>
+            • Rich Text Editor: Provides formatting options like bold, italics, lists, links, and more for creating engaging
+            content.<br>
+            • Image Upload: Users can upload images to accompany their posts, enhancing visual appeal.<br>
+            • Categories & Tags: Organize posts by categories for easy browsing and filtering.<br>
+            • User Authentication: Secure signup, login, and session management powered by Supabase Auth.<br>
+            • Responsive Design: Optimized UI for both mobile and web platforms to ensure smooth user experience.<br><br>
+      
+            <strong>Technical Highlights:</strong><br>
+            • State Management: Bloc pattern ensures scalable and maintainable state handling across the app.<br>
+            • Backend Integration: Supabase handles real-time database, authentication, and file storage.<br>
+            • API Communication: Efficiently manages network requests with error handling and loading states.<br>
+            • Data Validation: Ensures input integrity before saving posts or updating user profiles.<br>
+            • Performance Optimization: Lazy loading of posts and images to improve speed and reduce resource usage.<br><br>
+      
+            <strong>User Experience:</strong><br>
+            • Intuitive UI with clean layouts and smooth transitions.<br>
+            • Real-time updates: Posts and comments reflect instantly with Supabase’s real-time capabilities.<br>
+            • Accessibility considerations for wider user reach.<br><br>
+      
+            This app demonstrates comprehensive full-stack development skills, combining Flutter frontend expertise with
+            modern
+            backend technologies and clean architecture principles.
+          </p>
+          </p>
+          <button class="btn" style="margin-top: 16px" ; data-close>Close</button>
+        </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="script_enhanced.js"></script>
+  <script>
+    // Clear form on back navigation
+    window.addEventListener('pageshow', function(event) {
+      var form = document.getElementById('contactForm');
+      if (form) form.reset();
+    });
+
+    // Limit submissions to 3 per day per IP (client-side)
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+      var key = 'contact_submissions_' + new Date().toISOString().slice(0,10);
+      var count = parseInt(localStorage.getItem(key) || '0');
+      var blockMsg = document.createElement('div');
+      blockMsg.style = 'color:#ff5555;font-weight:700;margin-bottom:12px;display:none;';
+      blockMsg.textContent = 'You cannot send another message before tomorrow.';
+      form.parentNode.insertBefore(blockMsg, form);
+      if (count >= 2) {
+        form.style.display = 'none';
+        blockMsg.style.display = 'block';
+      }
+      form.addEventListener('submit', function(e) {
+        count = parseInt(localStorage.getItem(key) || '0');
+        if (count >= 3) {
+          e.preventDefault();
+          form.style.display = 'none';
+          blockMsg.style.display = 'block';
+          return false;
+        }
+        localStorage.setItem(key, count + 1);
+      });
+    });
+  </script>
+</body>
+</html>

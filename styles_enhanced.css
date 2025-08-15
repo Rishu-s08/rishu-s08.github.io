@@ -1,0 +1,109 @@
+/* Enhanced styles: animations, floats, timeline, modal, radial */
+@keyframes floaty{0%{transform:translateY(0) }50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+.enhanced-hero{position:relative;overflow:hidden}
+.bg-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.14}
+.enhanced-card{position:relative;z-index:2;animation:floaty 6s ease-in-out infinite}
+.enhanced-illustration{opacity:0.95;transform:translateY(10px)}
+
+/* pill badges */
+.pill{display:inline-block;background:linear-gradient(90deg,#c7b3ff33,#93c5fd22);padding:6px 10px;border-radius:999px;margin-right:8px;margin-top: 16px; font-weight:700;color:var(--soft);border:1px solid rgba(255,255,255,0.04)}
+
+/* floating cards */
+.card-float{animation:floaty 5s ease-in-out infinite;transition:transform .25s, box-shadow .25s}
+.card-float:hover{transform:translateY(-10px) scale(1.01);box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+
+/* enhanced skills — radial percent */
+.radial{width:74px;height:74px;position:relative;display:inline-grid;place-items:center;margin:8px 0}
+.radial svg{width:74px;height:74px;transform:rotate(-90deg)}
+.circle{fill:none;stroke:rgba(255,255,255,0.08);stroke-width:3.5;stroke-dasharray:100;stroke-dashoffset:0;transition:stroke-dashoffset 900ms ease-in-out}
+.radial .pct{position:absolute;font-weight:800;color:var(--soft)}
+
+/* projects filter chips */
+.proj-controls{margin-bottom:12px;display:flex;gap:8px}
+.chip{padding:8px 10px;border-radius:999px;border:1px solid rgb(255, 255, 255);background:transparent; color: aliceblue; cursor:pointer}
+.chip.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#021;border:none}
+
+/* timeline */
+.timeline{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.timeline .event{display:flex;gap:12px;align-items:flex-start}
+.timeline time{font-weight:800;color:var(--accent1)}
+
+/* testimonials */
+.test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.quote{padding:18px;border-radius:12px;opacity:0.95;border:1px solid rgba(255,255,255,0.03)}
+
+/* modal */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2,6,23,0.6);
+  z-index: 60;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s;
+}
+.modal[aria-hidden="false"] {
+  display: flex;
+  animation: modalFadeIn 0.35s cubic-bezier(.4,0,.2,1);
+}
+.modal[aria-hidden="true"] {
+  animation: modalFadeOut 0.25s cubic-bezier(.4,0,.2,1);
+}
+.modal-content {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01));
+  padding: 28px 24px;
+  border-radius: 18px;
+  border: 1.5px solid var(--glass-border);
+  max-width: 600px;
+  max-height: 70vh;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 8px rgba(167,139,250,0.08);
+  overflow-y: auto;
+  text-align: left;
+  transform: scale(0.96);
+  opacity: 0;
+  animation: modalContentIn 0.35s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes modalFadeIn {
+  from { background: rgba(2,6,23,0.0); }
+  to { background: rgba(2,6,23,0.6); }
+}
+@keyframes modalFadeOut {
+  from { background: rgba(2,6,23,0.6); }
+  to { background: rgba(2,6,23,0.0); }
+}
+@keyframes modalContentIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.modal[aria-hidden="true"] .modal-content {
+  animation: modalContentOut 0.25s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes modalContentOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.96); opacity: 0; }
+}
+.btn[data-close] {
+  background: linear-gradient(90deg, #a78bfa 0%, #60a5fa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(96,165,250,0.12);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn[data-close]:hover {
+  background: linear-gradient(90deg, #60a5fa 0%, #a78bfa 100%);
+  transform: scale(1.07);
+}
+
+/* responsive tweaks */
+@media (max-width:900px){
+  .test-grid{grid-template-columns:1fr}
+  .radial{margin:auto}
+}
