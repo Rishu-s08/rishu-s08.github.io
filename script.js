@@ -143,27 +143,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.panel, .project, .skill, .hero-card').forEach(el => observer.observe(el));
 
-// when form is submitted, show nice message (works even if form action isn't configured)
-const form = document.getElementById('contactForm');
-form.addEventListener('submit', async (e) => {
-  // allow native submit if real action present (not the placeholder)
-  const action = form.getAttribute('action') || '';
-  if (action.includes('your-form-id')) {
-    e.preventDefault();
-    // simulate success message
-    const btn = form.querySelector('button[type=submit]');
-    btn.disabled = true;
-    btn.innerText = 'Sending...';
-    setTimeout(() => {
-      btn.disabled = false;
-      btn.innerText = 'Send';
-      alert('Thank you! Your message would be sent once you replace the form action with your Formspree or Getform endpoint.');
-      form.reset();
-    }, 900);
-  }
-});
-
-// tiny parallax blob movement
 const blob = document.querySelector('.hero-illustration svg');
 if (blob) {
   window.addEventListener('mousemove', (ev) => {
@@ -172,3 +151,28 @@ if (blob) {
     blob.style.transform = `translate(${x}px, ${y}px)`;
   });
 }
+
+// when form is submitted, show nice message (works even if form action isn't configured)
+const form = document.getElementById('contactForm');
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    // allow native submit if real action present (not the placeholder)
+    const action = form.getAttribute('action') || '';
+    if (action.includes('your-form-id')) {
+      e.preventDefault();
+      // simulate success message
+      const btn = form.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.innerText = 'Sending...';
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerText = 'Send';
+        alert('Thank you! Your message would be sent once you replace the form action with your Formspree or Getform endpoint.');
+        form.reset();
+      }, 900);
+    }
+  });
+}
+
+// tiny parallax blob movement
+

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Rishi Sharma — Enhanced Portfolio</title>
-  <meta name="description" content="Enhanced version with extra animations and content." />
+  <title>Rishi Sharma</title>
+  <meta name="description" content="Rishi's Portfolio" />
   <!-- <link rel="stylesheet" href="styles.css" /> -->
-  <link rel="stylesheet" href="styles_enhanced.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- include original nav by keeping file structure intact -->
@@ -18,9 +18,9 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#timeline">Timeline</a></li>
       <!-- <li><a href="#testimonials">Testimonials</a></li> -->
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#footer">Contact</a></li>
     </ul>
-    <button class="nav-cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+    <button class="nav-cta" onclick="document.querySelector('#footer').scrollIntoView({behavior:'smooth'})">Hire Me</button>
     <button class="nav-toggle" aria-label="menu" onclick="toggleMenu()">☰</button>
   </nav>
 
@@ -33,7 +33,7 @@
       exciting projects on the way.</p>
       <div class="hero-cta">
         <a class="btn" href="#projects">See Projects</a>
-        <a class="btn ghost" href="#contact">Contact</a>
+        <a class="btn ghost" href="#footer">Contact</a>
       </div>
       <div class="socials">
         <a href="https://github.com/Rishu-s08" target="_blank" aria-label="github">GitHub</a>
@@ -291,42 +291,30 @@
     </section> -->
 
     <!-- Contact (original preserved) -->
-    <section id="contact" class="panel">
-      <div class="container glass-panel">
-        <h2>Contact</h2>
-        <p style="margin-top: 8px;">Want to collaborate or just say hi? Send a message — I’ll reply.</p>
-        <form id="contactForm" method="POST" action="https://formsubmit.co/dissyposable@proton.me" style="margin-top: 16px; background: rgba(167,139,250,0.10); border-radius: 18px; box-shadow: 0 4px 24px rgba(96,165,250,0.10); padding: 32px 24px; backdrop-filter: blur(8px); display: flex; flex-direction: column; gap: 18px;">
-          <label style="font-weight:600;color:#a78bfa;letter-spacing:0.5px;">
-            <span style="display:block;margin-bottom:6px;">Name</span>
-            <input type="text" name="name" required placeholder="Your name" style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #a78bfa33;background:rgba(255,255,255,0.12);color:#222;font-size:1rem;box-shadow:0 2px 8px #a78bfa11;transition:border .2s;outline:none;">
-          </label>
-          <label style="font-weight:600;color:#60a5fa;letter-spacing:0.5px;">
-            <span style="display:block;margin-bottom:6px;">Email</span>
-            <input type="email" name="email" required placeholder="you@example.com" style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #60a5fa33;background:rgba(255,255,255,0.12);color:#222;font-size:1rem;box-shadow:0 2px 8px #60a5fa11;transition:border .2s;outline:none;">
-          </label>
-          <input type="text" name="_honey" style="display:none">
 
-          <label style="font-weight:600;color:#22c55e;letter-spacing:0.5px;">
-            <span style="display:block;margin-bottom:6px;">Message</span>
-            <textarea name="message" rows="5" required placeholder="Write your message..." style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #22c55e33;background:rgba(255,255,255,0.12);color:#222;font-size:1rem;box-shadow:0 2px 8px #22c55e11;transition:border .2s;outline:none;resize:vertical;"></textarea>
-          </label>
-          <div class="form-row" style="display:flex;gap:12px;margin-top:8px;">
-            <button class="btn" type="submit" style="background:linear-gradient(90deg,#a78bfa,#60a5fa);color:#fff;border:none;border-radius:10px;padding:12px 28px;font-weight:700;font-size:1.08rem;box-shadow:0 2px 12px #a78bfa22;cursor:pointer;transition:background .2s,transform .2s;">Send</button>
-            <button class="btn ghost" type="reset" style="background:rgba(255,255,255,0.12);color:#a78bfa;border-radius:10px;padding:12px 28px;font-weight:700;font-size:1.08rem;box-shadow:0 2px 12px #a78bfa11;cursor:pointer;transition:background .2s,transform .2s;">Reset</button>
-          </div>
-          <!-- <p class="note" style="margin-top:12px;color:#60a5fa;font-size:0.98rem;">Or email me directly at <a href="mailto:rishi.2030s@gmail.com" style="color:#a78bfa;text-decoration:underline;">rishi.2030s@gmail.com</a></p> -->
+        <form id="contactForm" method="POST">
+         
         </form>
-      </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div>© <span id="year"></span> Rishi Sharma</div>
-    <div class="footer-links">
-      <!-- <a href="#">Privacy</a>
-      <a href="#">Terms</a> -->
+  <footer class="footer" id="footer">
+    <div style="text-align:center;font-size:18px;font-weight:600;margin-bottom:8px;letter-spacing:0.5px;">
+      © <span id="year"></span> Rishi Sharma
     </div>
-  </footer>
+  <div class="footer-contact" style="display:flex;flex-direction:column;align-items:center;gap:8px;font-size:16px;color:#f8f8ff;">
+      <span style="display:flex;align-items:center;gap:8px;">
+        <svg width="20" height="20" fill="#a78bfa" style="vertical-align:middle;" viewBox="0 0 24 24"><path d="M12 2C7.03 2 3 6.03 3 11c0 5.25 7.19 10.74 8.13 11.41.54.39 1.2.39 1.74 0C13.81 21.74 21 16.25 21 11c0-4.97-4.03-9-9-9zm0 17.88C10.14 18.09 5 13.97 5 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 2.97-5.14 7.09-7 8.88z"></path><circle cx="12" cy="11" r="2.5"></circle></svg>
+        Address: 123 Main Street, City, Country
+      </span>
+      <span style="display:flex;align-items:center;gap:8px;">
+        <svg width="20" height="20" fill="#60a5fa" style="vertical-align:middle;" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.12.45 2.33.68 3.48.68a1 1 0 011 1v3.5a1 1 0 01-1 1C5.92 22 2 18.08 2 13.5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.15.23 2.36.68 3.48a1 1 0 01-.21 1.11l-2.2 2.2z"></path></svg>
+        Mobile: <a href="tel:+919876543210" style="color:#60a5fa;text-decoration:none;font-weight:600;">+91-9876543210</a>
+      </span>
+      <span style="display:flex;align-items:center;gap:8px;">
+        <svg width="20" height="20" fill="#22c55e" style="vertical-align:middle;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 6.99 8-6.99V18z"></path></svg>
+        Email: <a href="mailto:rishi.2030s@gmail.com" style="color:#22c55e;text-decoration:underline;font-weight:600;">rishi.2030s@gmail.com</a>
+      </span>
+    </div>
+    </footer>
 
   <div id="modal1" class="modal" aria-hidden="true">
     <div class="modal-content">
@@ -587,9 +575,9 @@
         </div>
   </div>
 
-  <!-- <script src="script.js"></script> -->
-  <script src="script_enhanced.js"></script>
-  <script>
+  <script src="script.js"></script>
+  <!-- <script src="script_enhanced.js"></script> -->
+  <!-- <script>
     // Clear form on back navigation
     window.addEventListener('pageshow', function(event) {
       var form = document.getElementById('contactForm');
@@ -621,6 +609,6 @@
         localStorage.setItem(key, count + 1);
       });
     });
-  </script>
+  </script> -->
 </body>
 </html>
