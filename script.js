@@ -118,8 +118,10 @@ document.querySelectorAll('.modal').forEach(m=>{
 // Smooth scroll for nav links
 document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', e => {
+    const href = a.getAttribute('href') || '';
+    if (!href.startsWith('#')) return;
     e.preventDefault();
-    document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
     if (window.innerWidth < 900) { closeMenu(); }
   });
 });
