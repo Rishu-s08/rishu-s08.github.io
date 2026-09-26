@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Persistent scroll-driven 3D scene (fixed, behind all content) -->
+  <canvas id="three-canvas" class="three-canvas" aria-hidden="true"></canvas>
+  <div class="scene-overlay" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- include original nav by keeping file structure intact -->
   <nav class="nav">
     <div class="brand">Rishi <span>Sharma</span></div>
@@ -58,6 +63,10 @@
         </g>
       </svg>
     </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="mouse"></div>
+      <span>Scroll</span>
+    </div>
   </header>
 
   <main>
@@ -80,37 +89,37 @@
         <h2 class="section-title">Core Skills</h2>
         <p class="section-sub">A practical mix built through shipping Flutter apps, backend experiments, and automation agents.</p>
         <div class="skills-grid enhanced-skills">
-          <div class="skill card-float">
+          <div class="skill card-float tilt">
             <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" />
             <h3>Flutter & Dart</h3>
             <div class="radial" data-percent="88"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">88%</div></div>
             <small>Cross-platform UI, state management, responsive design</small>
           </div>
-          <div class="skill card-float">
+          <div class="skill card-float tilt">
             <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
             <h3>Backend Engineering</h3>
             <div class="radial" data-percent="78"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">78%</div></div>
             <small>Node.js, APIs, service architecture, auth patterns</small>
           </div>
-          <div class="skill card-float">
+          <div class="skill card-float tilt">
             <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
             <h3>Python & Automation</h3>
             <div class="radial" data-percent="82"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">82%</div></div>
             <small>Scripting, AI experiments, QA workflow automation</small>
           </div>
-          <div class="skill card-float">
+          <div class="skill card-float tilt">
             <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="Agentic AI" />
             <h3>Agentic AI Systems</h3>
             <div class="radial" data-percent="74"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">74%</div></div>
             <small>MCP tools, AutoGen multi-agent flows, LangGraph orchestration</small>
           </div>
-          <div class="skill card-float">
+          <div class="skill card-float tilt">
             <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="DevOps" />
             <h3>DevOps & Infra Basics</h3>
             <div class="radial" data-percent="70"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">70%</div></div>
             <small>Docker, Redis, deployment workflow fundamentals</small>
           </div>
-          <div class="skill card-float">
+          <div class="skill card-float tilt">
             <img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Cybersecurity" />
             <h3>Cybersecurity Learning</h3>
             <div class="radial" data-percent="66"><svg viewBox="0 0 36 36"><path class="circle" d="M18 2.0845a15.9155 15.9155 0 1 1 0 31.831 15.9155 15.9155 0 1 1 0-31.831"/></svg><div class="pct">66%</div></div>
@@ -128,12 +137,14 @@
         <div class="proj-controls">
           <button style="margin-top: 8px;" class="chip active" data-filter="all">All</button>
           <button style="margin-top: 8px;" class="chip" data-filter="flutter">Flutter</button>
+          <button style="margin-top: 8px;" class="chip" data-filter="android">Android</button>
+          <button style="margin-top: 8px;" class="chip" data-filter="web">Web</button>
           <button style="margin-top: 8px;" class="chip" data-filter="backend">Backend</button>
           <button style="margin-top: 8px;" class="chip" data-filter="python">Python</button>
           <button style="margin-top: 8px;" class="chip" data-filter="automation">Automation</button>
         </div>
         <div class="projects-grid enhanced-projects">
-          <article class="project glass card-float" data-tags="flutter location automation">
+          <article class="project glass card-float tilt" data-tags="flutter location automation">
             <div class="proj-header">
               <h3>Cartelle</h3>
               <p class="proj-meta">Flutter · Geofencing · Notifications · Maps</p>
@@ -145,7 +156,7 @@
             </div>
           </article>
 
-          <article class="project glass card-float" data-tags="flutter automation productivity">
+          <article class="project glass card-float tilt" data-tags="flutter automation productivity">
             <div class="proj-header">
               <h3>Montra</h3>
               <p class="proj-meta">Flutter · Offline-first · Billing Reminders · Analytics</p>
@@ -157,7 +168,43 @@
             </div>
           </article>
 
-          <article class="project glass card-float" data-tags="flutter forms">
+          <article class="project glass card-float tilt" data-tags="android flutter automation">
+            <div class="proj-header">
+              <h3>AppBack</h3>
+              <p class="proj-meta">Kotlin · Shizuku · Binder/AIDL · Android Backup Manager</p>
+            </div>
+            <p class="proj-desc">No-root Android app state backup and multi-device synchronization, built on Android's Backup Manager with Shizuku and Binder/AIDL for privileged operations without rooting the device.</p>
+            <div class="proj-links">
+              <a href="#" class="btn small" data-open="modal10">Details</a>
+              <a href="https://github.com/Rishu-s08/appback" target="_blank" rel="noopener noreferrer" class="btn small ghost">View Repo</a>
+            </div>
+          </article>
+
+          <article class="project glass card-float tilt" data-tags="web backend fullstack">
+            <div class="proj-header">
+              <h3>LMS Platform</h3>
+              <p class="proj-meta">TypeScript · Web · Modular Architecture</p>
+            </div>
+            <p class="proj-desc">A web-based Learning Management System where faculty create courses, manage classes, post assignments and resources, while students enroll, submit work, and track their academics.</p>
+            <div class="proj-links">
+              <a href="#" class="btn small" data-open="modal11">Details</a>
+              <a href="https://github.com/Rishu-s08/LMS-project" target="_blank" rel="noopener noreferrer" class="btn small ghost">View Repo</a>
+            </div>
+          </article>
+
+          <article class="project glass card-float tilt" data-tags="android flutter">
+            <div class="proj-header">
+              <h3>Device Utility App</h3>
+              <p class="proj-meta">Flutter · Android · Hardware Monitoring · Sensors</p>
+            </div>
+            <p class="proj-desc">A single-dashboard Android app for real-time hardware monitoring — battery, connectivity, sensors, camera, GPS, QR scanning, and notifications all in one place.</p>
+            <div class="proj-links">
+              <a href="#" class="btn small" data-open="modal12">Details</a>
+              <a href="https://github.com/Rishu-s08/deviceutilityapp" target="_blank" rel="noopener noreferrer" class="btn small ghost">View Repo</a>
+            </div>
+          </article>
+
+          <article class="project glass card-float tilt" data-tags="flutter forms">
             <div class="proj-header">
               <h3>Faculty Feedback System</h3>
               <p class="proj-meta">Flutter · Forms · Analytics</p>
@@ -169,7 +216,7 @@
             </div>
           </article>
 
-          <article class="project glass card-float" data-tags="backend microservice">
+          <article class="project glass card-float tilt" data-tags="backend microservice">
             <div class="proj-header">
               <h3>Social Media Microservices</h3>
               <p class="proj-meta">Node.js · Microservices · Docker · Redis</p>
@@ -181,7 +228,7 @@
             </div>
           </article>
 
-          <article class="project glass card-float" data-tags="flutter blog app">
+          <article class="project glass card-float tilt" data-tags="flutter blog app">
             <div class="proj-header">
               <h3>Blog App</h3>
               <p class="proj-meta">Flutter · Supabase · Bloc</p>
@@ -193,7 +240,7 @@
             </div>
           </article>
 
-          <article class="project glass card-float" data-tags="flutter reddit clone">
+          <article class="project glass card-float tilt" data-tags="flutter reddit clone">
             <div class="proj-header">
               <h3>Reddit Clone</h3>
               <p class="proj-meta">Flutter · Firebase · Supabase · Riverpod</p>
@@ -205,7 +252,7 @@
             </div>
           </article>
 
-          <article class="project glass card-float" data-tags="flutter todo app">
+          <article class="project glass card-float tilt" data-tags="flutter todo app">
             <div class="proj-header">
               <h3>To Do Notes</h3>
               <p class="proj-meta">Flutter · Bloc · Productivity</p>
@@ -217,7 +264,7 @@
             </div>
           </article>
 
-          <article class="project glass card-float" data-tags="python automation ai">
+          <article class="project glass card-float tilt" data-tags="python automation ai">
             <div class="proj-header">
               <h3>Flappy Bird NEAT AI</h3>
               <p class="proj-meta">Python · NEAT · Genetic Algorithms</p>
@@ -229,7 +276,7 @@
             </div>
           </article>
 
-          <article class="project glass card-float" data-tags="automation qa ai python">
+          <article class="project glass card-float tilt" data-tags="automation qa ai python">
             <div class="proj-header">
               <h3>QA Automation Agent for Bug Reporting</h3>
               <p class="proj-meta">Automation · MCP · Microsoft AutoGen · LangGraph · Google APIs</p>
@@ -295,7 +342,15 @@
           </div>
           <div class="event">
             <time>2026</time>
-            <p>Launched Montra V1 on Google Play and published product notes on LinkedIn</p>
+            <p>Launched Montra V1 & V2 on Google Play and 2 more apps on Google Play</p>
+          </div>
+          <div class="event">
+            <time>2026</time>
+            <p>Started working on Innerly</p>
+          </div>
+          <div class="event">
+            <time>2026</time>
+            <p>Working with Machine Learning & Deep Learning Architectures</p>
           </div>
           
         </div>
@@ -671,7 +726,94 @@
     </div>
   </div>
 
+  <div id="modal10" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>AppBack — No-Root App Backup & Sync</h3>
+      <p style="margin-bottom: 16px;">
+        <b>Core Purpose</b><br>
+        AppBack lets users back up and synchronize application state across multiple Android devices — without needing root access.<br><br>
+
+        <b>How it works</b><br>
+        • Leverages Android's built-in <b>Backup Manager</b> to capture app state<br>
+        • Uses <b>Shizuku</b> to run privileged operations via ADB-level permissions, no root required<br>
+        • Communicates through <b>Binder / AIDL</b> for low-level, high-performance inter-process calls<br>
+        • Enables multi-device synchronization of captured backups<br><br>
+
+        <b>Why it matters</b><br>
+        Most robust backup solutions require root, which is risky and inaccessible to average users. AppBack explores a safer path using officially supported Android mechanisms combined with Shizuku's elevated permissions.<br><br>
+
+        <b>Tech Stack</b><br>
+        • Kotlin<br>
+        • Android Backup Manager API<br>
+        • Shizuku (privileged API access without root)<br>
+        • Binder / AIDL for IPC<br>
+      </p>
+      <button class="btn" style="margin-top: 16px" data-close>Close</button>
+    </div>
+  </div>
+
+  <div id="modal11" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>LMS Platform — Learning Management System</h3>
+      <p style="margin-bottom: 16px;">
+        <b>Core Purpose</b><br>
+        A web-based Learning Management System connecting faculty and students in one modular platform.<br><br>
+
+        <b>For Faculty</b><br>
+        • Create and manage courses<br>
+        • Organize classes and cohorts<br>
+        • Post assignments, resources, and learning materials<br>
+        • Review and grade student submissions<br><br>
+
+        <b>For Students</b><br>
+        • Enroll in available courses<br>
+        • Submit assignments and coursework<br>
+        • Access resources shared by faculty<br>
+        • Track academic progress in one dashboard<br><br>
+
+        <b>Engineering Highlights</b><br>
+        • Clean, modular architecture for maintainability and scale<br>
+        • Type-safe codebase built with TypeScript<br>
+        • Role-based flows separating faculty and student capabilities<br><br>
+
+        <b>Tech Stack</b><br>
+        • TypeScript<br>
+        • Web (modular front-end + back-end architecture)<br>
+      </p>
+      <button class="btn" style="margin-top: 16px" data-close>Close</button>
+    </div>
+  </div>
+
+  <div id="modal12" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Device Utility App — Hardware Dashboard</h3>
+      <p style="margin-bottom: 16px;">
+        <b>Core Purpose</b><br>
+        A single-dashboard Flutter Android app that surfaces real-time device hardware information and utilities in one clean interface.<br><br>
+
+        <b>Features</b><br>
+        • Battery status and health monitoring<br>
+        • Connectivity state (Wi-Fi / mobile / network info)<br>
+        • Live sensor readings (accelerometer, gyroscope, and more)<br>
+        • Camera access and controls<br>
+        • GPS / location data<br>
+        • Built-in QR code scanning<br>
+        • Local notifications<br><br>
+
+        <b>Why it matters</b><br>
+        Demonstrates practical integration with a wide range of Android platform APIs and hardware channels through Flutter, unified under a responsive single-dashboard UX.<br><br>
+
+        <b>Tech Stack</b><br>
+        • Flutter (Dart)<br>
+        • Android platform channels<br>
+        • Device sensor, camera, location & notification plugins<br>
+      </p>
+      <button class="btn" style="margin-top: 16px" data-close>Close</button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
+  <script src="three-scene.js"></script>
   <!-- <script src="script_enhanced.js"></script> -->
   <!-- <script>
     // Clear form on back navigation

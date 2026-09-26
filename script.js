@@ -167,6 +167,57 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.panel, .project, .skill, .hero-card').forEach(el => observer.observe(el));
 
+// Staggered, directional entrance for grid items (projects & skills)
+(function staggerReveal() {
+  const reveal = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.classList.add('reveal-in');
+        revealObserverUnobserve(en.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+  function revealObserverUnobserve(t) { reveal.unobserve(t); }
+
+  // Projects: alternate slide-in direction, stagger by index
+  document.querySelectorAll('.projects-grid .project').forEach((el, i) => {
+    el.classList.add('reveal', i % 2 === 0 ? 'from-left' : 'from-right');
+    el.style.setProperty('--reveal-delay', (i % 6) * 70 + 'ms');
+    reveal.observe(el);
+  });
+  // Skills: pop up with stagger
+  document.querySelectorAll('.skills-grid .skill').forEach((el, i) => {
+    el.classList.add('reveal', 'from-bottom');
+    el.style.setProperty('--reveal-delay', (i % 6) * 80 + 'ms');
+    reveal.observe(el);
+  });
+  // Timeline events: slide from left with stagger
+  document.querySelectorAll('.timeline .event').forEach((el, i) => {
+    el.classList.add('reveal', 'from-left');
+    el.style.setProperty('--reveal-delay', Math.min(i, 8) * 60 + 'ms');
+    reveal.observe(el);
+  });
+})();
+
+// Notify the 3D scene which section is active so it can "react"
+(function sectionSpotlight() {
+  const sections = document.querySelectorAll('main > section, header.hero, footer.footer');
+  const spot = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting && en.intersectionRatio > 0.35) {
+        window.dispatchEvent(new CustomEvent('section-active', {
+          detail: { id: en.target.id || '' }
+        }));
+        en.target.classList.add('section-live');
+      } else {
+        en.target.classList.remove('section-live');
+      }
+    });
+  }, { threshold: [0.35, 0.6] });
+  sections.forEach(s => spot.observe(s));
+})();
+
 const blob = document.querySelector('.hero-illustration svg');
 if (blob) {
   window.addEventListener('mousemove', (ev) => {
@@ -199,4 +250,51 @@ if (form) {
 }
 
 // tiny parallax blob movement
+
+// =====================================================================
+// 3D tilt effect on cards (pointer-reactive rotation)
+// =====================================================================
+(function cardTilt() {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const coarse = window.matchMedia("(pointer: coarse)").matches;
+  if (reduce || coarse) return; // skip on touch / reduced-motion
+
+  const MAX = 10; // max tilt degrees
+  document.querySelectorAll(".tilt").forEach((card) => {
+    card.style.perspective = "800px";
+
+    function onMove(e) {
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;  // 0..1
+      const py = (e.clientY - rect.top) / rect.height;  // 0..1
+      const rx = (0.5 - py) * (MAX * 2);
+      const ry = (px - 0.5) * (MAX * 2);
+      card.style.transform =
+        "perspective(800px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" +
+        ry.toFixed(2) + "deg) translateY(-6px)";
+    }
+    function reset() {
+      card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg)";
+    }
+    card.addEventListener("mousemove", onMove);
+    card.addEventListener("mouseleave", reset);
+  });
+})();
+
+// =====================================================================
+// Scroll progress bar
+// =====================================================================
+(function scrollProgress() {
+  const bar = document.getElementById("scrollProgress");
+  if (!bar) return;
+  function update() {
+    const scrollable =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const p = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    bar.style.width = p + "%";
+  }
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+})();
 
