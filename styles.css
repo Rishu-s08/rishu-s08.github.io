@@ -917,6 +917,176 @@ body.grabbing * {
   user-select: none;
 }
 
+/* =====================================================================
+   3D Focus Mode (double-click background to enter)
+   ===================================================================== */
+
+/* Fade + push all page content away, leaving the crystal as a full stage */
+body.scene-focus .nav,
+body.scene-focus .hero,
+body.scene-focus main,
+body.scene-focus .footer,
+body.scene-focus .scroll-hint,
+body.scene-focus .scroll-progress {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: scale(0.96);
+  filter: blur(4px);
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+}
+
+/* Darken the backdrop for contrast while focused */
+body.scene-focus .scene-overlay {
+  background: radial-gradient(120vw 100vh at 50% 50%, rgba(3, 8, 16, 0.35) 0%, rgba(3, 8, 16, 0.82) 100%);
+  transition: background 0.6s ease;
+}
+
+/* Give the canvas full pointer priority + grab cursor in focus mode */
+body.scene-focus .three-canvas {
+  cursor: grab;
+}
+body.scene-focus.grabbing .three-canvas {
+  cursor: grabbing;
+}
+
+/* Exit button — hidden by default, shown in focus mode */
+.scene-focus-exit {
+  position: fixed;
+  top: 22px;
+  right: 22px;
+  z-index: 80;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  color: #e5eef8;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s ease;
+}
+.scene-focus-exit:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+body.scene-focus .scene-focus-exit {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Focus hint at the bottom */
+.scene-focus-hint {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  z-index: 80;
+  color: var(--muted, #9fb3c8);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
+}
+body.scene-focus .scene-focus-hint {
+  opacity: 0.85;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.scene-focus .nav,
+  body.scene-focus main,
+  body.scene-focus .footer {
+    transition: opacity 0.2s ease;
+    filter: none;
+    transform: none;
+  }
+}
+
+/* =====================================================================
+   Navigation GLOBE (CSS3DRenderer panels on a sphere, focus mode)
+   ===================================================================== */
+.css3d-layer {
+  position: fixed !important;
+  inset: 0;
+  z-index: 75;
+  pointer-events: none; /* wrapper passes through; panels opt back in */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+body.scene-focus .css3d-layer {
+  opacity: 1;
+}
+
+/* Glowing orb behind the panel globe so it reads as a cohesive sphere */
+.globe-orb {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 460px;
+  height: 460px;
+  transform: translate(-50%, -50%) scale(0.6);
+  border-radius: 50%;
+  z-index: 74;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 38% 32%, rgba(56, 189, 248, 0.35), rgba(34, 211, 238, 0.16) 45%, rgba(10, 18, 30, 0.05) 70%, transparent 75%);
+  box-shadow: 0 0 90px rgba(56, 189, 248, 0.35), inset 0 0 120px rgba(34, 211, 238, 0.2);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+body.scene-focus .globe-orb {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.globe-panel {
+  width: 128px;
+  height: 46px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  background: linear-gradient(160deg, rgba(23, 37, 60, 0.88), rgba(12, 20, 34, 0.9));
+  color: #eaf4ff;
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 8px 26px rgba(2, 6, 23, 0.5), 0 0 20px rgba(56, 189, 248, 0.16);
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+/* Panels clickable only in focus mode */
+body.scene-focus .globe-panel {
+  pointer-events: auto;
+}
+.globe-panel:hover {
+  background: linear-gradient(160deg, rgba(56, 189, 248, 0.4), rgba(34, 211, 238, 0.3));
+  border-color: rgba(56, 189, 248, 0.95);
+  box-shadow: 0 12px 34px rgba(2, 6, 23, 0.6), 0 0 36px rgba(56, 189, 248, 0.55);
+}
+
+@media (max-width: 820px) {
+  /* On small screens 3D is disabled; globe never shows. */
+  .css3d-layer { display: none; }
+}
+
 /* Fallback: animated gradient when 3D is unavailable / mobile / reduced-motion */
 .three-canvas.three-fallback {
   opacity: 1;
